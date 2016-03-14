@@ -419,23 +419,17 @@ $\lambda (a : A) (b : B) (c : C)
 |   |                    | B                                                             |                    |   | 
 **** Remark
     :PROPERTIES:
-    :BEAMER_ENV: onslide
     :BEAMER_ACT: <4->
     :END:
 These filling operations work on outer horns
 $\Lambda^{n}_{0}$ and $\Lambda^{n}_{n}$
 but don't preserve functionality.
 ** Summary
+*** 
+    :PROPERTIES:
+    :BEAMER_ENV: theorem
+    :END:
 For any dependent type theory $\mathcal{T}$,
-*** 
-    :PROPERTIES:
-    :BEAMER_ENV: theorem
-    :END:
-$R(\mathcal{T})$ is a Kan complex.
-*** 
-    :PROPERTIES:
-    :BEAMER_ENV: theorem
-    :END:
 $S(\mathcal{T})$ is a quasicategory.
 * COMMENT Misc
 ** Fontawesome
