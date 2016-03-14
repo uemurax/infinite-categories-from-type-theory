@@ -29,10 +29,27 @@
 - $A \simeq B :\equiv
   \Sigma (f : A \to B). (\Sigma (g : B \to A). g \circ f \sim \mathbf{id})
   \times (\Sigma (h : B \to A). f \circ h \sim \mathbf{id})$
+**** Why the Univalence Axiom?
+     :PROPERTIES:
+     :BEAMER_ENV: onslide*
+     :BEAMER_ACT: <3-5>
+     :END:
+- Human ::
+  Can identify equivalent objects easily.
+- Computer :: @@beamer:<4->@@
+  *TYPE ERROR*
+***** If the universe is univalent
+      :PROPERTIES:
+      :BEAMER_ENV: onslide
+      :BEAMER_ACT: <5>
+      :END:
+With the Univalence Axiom, computers can:
+- treat an equivalence as an equality and
+- recover the original function if necessary.
 **** Example
      :PROPERTIES:
      :BEAMER_ENV: onslide*
-     :BEAMER_ACT: <3->
+     :BEAMER_ACT: <6->
      :END:
 - $\mathbcal{Set}$ ::
   Only $(0 = 0) \simeq (0 \simeq 0)$ and
@@ -43,7 +60,7 @@
 - $2$-$\mathcal{Gpd}$ ::
   For $1$-groupoids $A$ and $B$,
   $(A = B) \simeq (A \simeq B)$ holds.
-- $\infty$-$\mathcal{Gpd}$ :: @@beamer:<4>@@
+- $\infty$-$\mathcal{Gpd}$ :: @@beamer:<7->@@
   For *any* $\infty$-groupoids $A$ and $B$,
   $(A = B) \simeq (A \simeq B)$ holds.
 
