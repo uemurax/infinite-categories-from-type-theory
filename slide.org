@@ -8,30 +8,6 @@
 #+LATEX_HEADER: \usepackage{dutchcal}
 #+BEAMER_HEADER: \usefonttheme{professionalfonts}
 
-* COMMENT Build
-** Org
-#+BEGIN_SRC emacs-lisp
-  (dolist (v '(("onslide" "s" "\\onslide%a{" "}")
-               ("onslide*" "*" "\\onslide*%a{" "}")
-               ("onslide+" "+" "\\onslide+%a{" "}")))
-    (add-to-list 'org-beamer-environments-extra v))
-  nil
-#+END_SRC
-
-#+RESULTS:
-
-** LaTeX
-#+BEGIN_SRC emacs-lisp
-  (setq org-latex-pdf-process
-        '("pdflatex -draftmode -interaction nonstopmode %b"
-          "bibtex %b"
-          "pdflatex -draftmode -interaction nonstopmode %b"
-          "pdflatex %b"))
-  nil
-#+END_SRC
-
-#+RESULTS:
-
 * Introduction
 
 ** Why $\infty$-categories?
@@ -70,3 +46,8 @@
 - $\infty$-$\mathcal{Gpd}$ :: @@beamer:<4>@@
   For *any* $\infty$-groupoids $A$ and $B$,
   $(A = B) \simeq (A \simeq B)$ holds.
+
+# Local Variables:
+# org-latex-pdf-process: ("pdflatex -draftmode -interaction nonstopmode %b" "bibtex %b" "pdflatex -draftmode -interaction nonstopmode %b" "pdflatex %b")
+# org-beamer-environments-extra: (("onslide" "s" "\\onslide%a{" "}") ("onslide*" "*" "\\onslide*%a{" "}") ("onslide+" "+" "\\onslide+%a{" "}"))
+# End:
