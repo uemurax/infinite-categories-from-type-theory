@@ -64,6 +64,18 @@ With the Univalence Axiom, computers can:
   For *any* $\infty$-groupoids $A$ and $B$,
   $(A = B) \simeq (A \simeq B)$ holds.
 
+** $\infty$-Categorical semantics
+*** Intensional DTT and $\infty$-LCCC
+Is there an ($\infty$-)equivalence between
+- the ($\infty$-)category of *intensional Martin-L\ouml{}f type theories* and
+- the ($\infty$-)category of *locally cartesian closed $\infty$-categories*?
+*** HoTT and $\infty$-topos
+    :PROPERTIES:
+    :BEAMER_ACT: <2->
+    :END:
+Is there an ($\infty$-)equivalence between
+- the ($\infty$-)category of *homotopy type theories* and
+- the ($\infty$-)category of *$\infty$-topoi*?
 * COMMENT Misc
 # Local Variables:
 # org-latex-pdf-process: ("pdflatex -draftmode -interaction nonstopmode %b" "bibtex %b" "pdflatex -draftmode -interaction nonstopmode %b" "pdflatex %b")
