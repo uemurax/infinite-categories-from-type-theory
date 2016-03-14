@@ -9,6 +9,7 @@
 #+BEAMER_HEADER: \usefonttheme{professionalfonts}
 #+LATEX_HEADER: \usepackage[all]{xy}
 #+LATEX_HEADER: \usepackage{fontspec,fontawesome}
+#+LATEX_HEADER: \setmonofont{DejaVu Sans Mono}
 
 * Introduction
 
@@ -264,6 +265,13 @@ $S_{0}(\mathcal{T})$ is the simplicial set where
     :END:
 Note that this definition is formalized in Agda
 using mutual recursion of 6 functions!
+** Formalization
+   :PROPERTIES:
+   :BEAMER_OPT: allowframebreaks,label=
+   :END:
+#+BEAMER: \begingroup\scriptsize
+#+INCLUDE: "HigherRelation.agda" src agda :lines "37-"
+#+BEAMER: \endgroup
 * COMMENT Misc
 ** Fontawesome
 We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
