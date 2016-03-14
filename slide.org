@@ -306,6 +306,46 @@ paths from $p$ to $p'$ /above/ $\gamma$.
   |   |                                 | \mathbf{Eq}(P) \ar[dl] \ar[u] \ar[dr] |                    |   |
   |   | \mathbf{Eq}(A) \ar[uul] \ar[dr] |                                       | P \ar[dl] \ar[uur] |   |
   |   |                                 | A                                     |                    |   |
+** Functional higher relations
+*** Definitions
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <1>
+    :END:
+**** Contractibility
+    :PROPERTIES:
+    :BEAMER_ENV: definition
+    :END:
+For a type $A$,
+$\mathbf{isContr}(A) :\equiv
+\Sigma (a : A). (x : A) \to a = x$
+**** Functional relation
+    :PROPERTIES:
+    :BEAMER_ENV: definition
+    :END:
+A $2$-ary relation $P : A \to B \to \mathbf{Type}$
+is /functional/ if
+the type $(a : A) \to \mathbf{isContr}(\Sigma (b : B). P(a, b))$
+has an element.
+*** Examples
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <2->
+    :END:
+**** Equality
+     :PROPERTIES:
+     :BEAMER_ENV: example
+     :END:
+For any type $A$,
+the type family $\lambda (a, a' : A) \to a = a'$
+is functional.
+**** Function
+     :PROPERTIES:
+     :BEAMER_ENV: example
+     :END:
+For any function $f : A \to B$,
+the type family $\lambda (a : A) (b : B) \to f(a) = b$
+is functional.
 * COMMENT Misc
 ** Fontawesome
 We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
