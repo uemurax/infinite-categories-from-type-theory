@@ -7,6 +7,7 @@
 #+LATEX_HEADER: \usepackage[euler-digits]{eulervm}
 #+LATEX_HEADER: \usepackage{dutchcal}
 #+BEAMER_HEADER: \usefonttheme{professionalfonts}
+#+LATEX_HEADER: \usepackage[all]{xy}
 
 * Introduction
 
@@ -76,8 +77,84 @@ Is there an ($\infty$-)equivalence between
 Is there an ($\infty$-)equivalence between
 - the ($\infty$-)category of *homotopy type theories* and
 - the ($\infty$-)category of *$\infty$-topoi*?
+
+* $\infty$-Categories
+** Outline
+#+TOC: headlines [currentsection]
+** $\infty$-Categories
+There are many definitions of $\infty$-categories.
+- *@@beamer:<2->@@Quasicategories*
+- Simplicially enriched categories
+- Topologically enriched categories
+- Segal categories
+- Complete Segal spaces
+- $A_{\infty}$-Categories
+** Quasicategories
+*** Definition of quasicategory
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <1>
+    :END:
+**** Quasicategory
+     :PROPERTIES:
+     :BEAMER_ENV: definition
+     :END:
+A /quasicategory/ is a simplicial set $K$
+which has the following property:
+- for any $0 < i < n$,
+  any map $f_{0} : \Lambda^{n}_{i} \to K$
+  admits an extension $f : \Delta^{n} \to K$.
+  #+ATTR_LATEX: :mode math :environment xymatrix :math-arguments @M=8pt
+  | \Lambda^{n}_{i} \ar[r]^-{f_{0}} \ar@{>->}[d] | K |
+  | \Delta^{n} \ar@{.>}[ur]_-{f}                 |   |
+*** Example of inner filling
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <2->
+    :END:
+**** Examples
+***** Composition
+      :PROPERTIES:
+      :BEAMER_ENV: onslide*
+      :BEAMER_ACT: <2-10>
+      :END:
+- $0 < i = 1 < 2$ ::
+  #+ATTR_LATEX: :mode inline-math :environment xymatrix :math-arguments @R=4pt
+  | x \ar@{-}[dr] \only<3->{\ar@{.}[rr]} |           | \only<3->{g \only<4->{'} \ar@{.>}[rr]} |           | z |
+  |                                      | e \ar[dr] | \only<3->{\sigma \only<4->{'}}         | f \ar[ur] |   |
+  |                                      |           | y \ar@{-}[ur]                          |           |   |
+- $0 < i = 1 < 3$ :: @@beamer:<5->@@
+  #+ATTR_LATEX: :mode inline-math :environment xymatrix :math-arguments @R=4pt
+  | x \ar@{-}[dd] \ar@{-}[dr] \ar@{-}[rr] |                                                     | g' \ar[rr]                                                     |                                                                | z                   |
+  |                                       | g \ar[dddrrr]                                       | \sigma' \only<6>{\ar@{.}[dll] \ar@{.}[r] \ar@{.}[u]}           | f \ar[ur]                                                      |                     |
+  | e \ar[dd]                             | \sigma \only<6>{\ar@{.}[l] \ar@{.}[ddr] \ar@{.}[u]} | \only<10->{\Gamma \ar@{.}[l] \ar@{.}[d] \ar@{.}[r] \ar@{.}[u]} | \only<8->{\tau} \only<9>{\ar@{.}[ull] \ar@{.}[r] \ar@{.}[uul]} | \mathbf{id} \ar[uu] |
+  |                                       |                                                     | \mathbf{id} \only<6>{\ar@{.}[d] \ar@{.}[urr] \ar@{.}[uur]}     |                                                                |                     |
+  | y \ar@{-}[rr] \ar@{-}[uuurrr]         |                                                     | f \ar[rr]                                                      |                                                                | z \ar@{-}[uu]       |
+***** Associativity
+      :PROPERTIES:
+      :BEAMER_ENV: onslide*
+      :BEAMER_ACT: <11->
+      :END:
+Given edges
+#+ATTR_LATEX: :mode inline-math :environment xymatrix
+| x \ar[r]^-{e} | y \ar[r]^-{f} | z \ar[r]^-{g} | w, |
+there are two ways to compose them:
+#+BEGIN_CENTER
+#+ATTR_LATEX: :mode inline-math :environment xymatrix :math-arguments @R=10pt
+| x \ar[dr] \ar[rrr] \ar[drr] |          |           | w |
+|                             | y \ar[r] | z \ar[ur] |   |
+and
+#+ATTR_LATEX: :mode inline-math :environment xymatrix :math-arguments @R=10pt
+| x \ar[dr] \ar[rrr] |                   |           | w |
+|                    | y \ar[r] \ar[urr] | z \ar[ur] |   |
+#+END_CENTER
+#+BEAMER: \onslide<12->{
+But we can show they are homotopic
+using the filling condition for $n = 3$ and $i = 1$ or $2$.
+#+BEAMER: }
 * COMMENT Misc
 # Local Variables:
 # org-latex-pdf-process: ("pdflatex -draftmode -interaction nonstopmode %b" "bibtex %b" "pdflatex -draftmode -interaction nonstopmode %b" "pdflatex %b")
 # org-beamer-environments-extra: (("onslide" "s" "\\onslide%a{" "}") ("onslide*" "*" "\\onslide*%a{" "}") ("onslide+" "+" "\\onslide+%a{" "}"))
+# org-latex-table-matrix-macros: (("xymatrix" . "\\\\"))
 # End:
