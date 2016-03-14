@@ -156,7 +156,7 @@ using the filling condition for $n = 3$ and $i = 1$ or $2$.
 * $\infty$-Categories from Type Theory
 ** Outline
 #+TOC: headlines [currentsection]
-** Are 1-simplexes functions?
+** Are $1$-simplexes functions?
 For a dependent type theory $\mathcal{T}$,
 define a simplicial set $S(\mathcal{T})$ as:
 *** 0 to 2
@@ -190,8 +190,80 @@ define a simplicial set $S(\mathcal{T})$ as:
 - @@beamer:<3->@@
   $4$-simplexes are the homotopies from \faRocket{} to \faSpaceShuttle{}.
 #+BEAMER: \onslide<3->{
-It is hard to write down what $n$-simplexes are in general.
+It is hard to write down, even imagine,
+what $n$-simplexes are in general.
 #+BEAMER: }
+** Functions are relations
+There are two ways to construct a syntactic category form a type theory.
+In both ways the objects are the types.
+1. The morphisms are the functions.
+   #+BEAMER: \pause
+2. The morphisms are the /functional relations/:
+   relations $R : A \to B \to \mathbf{Prop}$
+   such that the formula $\forall (a : A). \exists ! (b : B). R(a, b)$
+   is provable.
+** Strategy
+Let $\mathcal{T}$ be a dependent type theory.
+1. Define a simplicial set $S_{0}(\mathcal{T})$
+   whose $1$-simplexes are the $2$-ary type families
+   $R : A \to B \to \mathbf{Type}$.
+   #+BEAMER: \pause
+2. Take a subsimplicial set $S(\mathcal{T}) \subset S_{0}(\mathcal{T})$
+   whose $1$-simplexes are the /functional type families/.
+   #+BEAMER: \pause
+3. Give higher analogies.
+** Simplicial set of (higher) relations
+*** Syntactic form
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <1-4>
+    :END:
+$S_{0}(\mathcal{T})$ is the simplicial set where
+1. $0$-simplexes are the types,
+2. @@beamer:<2->@@
+   $1$-simplexes are the $2$-ary type families,
+3. @@beamer:<3->@@
+   $2$-simplexes are the type families of the form
+   $X : (a : A) (b : B) (c : C) \to
+   P(a, b) \to Q(a, c) \to R(b, c) \to \mathbf{Type}$,
+4. @@beamer:<4->@@
+   $3$-simplexes are the type families of the form
+   $\Theta : (a : A) (b : B) (c : C) (d : D)
+   (p : P(a, b)) (q : Q(a, c)) (r : R(a, d)) (s : S(b, c)) (t : T(b, d)) (u : U(c, d))
+   \to X(p, q, s) \to Y(p, r, t) \to Z(q, r, u) \to W(s, t, u) \to \mathbf{Type}$,
+5. @@beamer:<4->@@
+   and so on.
+*** Categorical form
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <5>
+    :END:
+- $0$-simplexes ::
+  #+ATTR_LATEX: :mode inline-math :environment xymatrix
+  | A |
+- $1$-simplexes ::
+  #+ATTR_LATEX: :mode inline-math :environment xymatrix
+  | A | P \ar[l] \ar[r] | B |
+- $2$-simplexes ::
+  #+ATTR_LATEX: :mode inline-math :environment xymatrix :math-arguments @R=7pt
+  | A |                    | Q \ar[ll] \ar[rr]        |                    | C |
+  |   |                    | X \ar[dl] \ar[u] \ar[dr] |                    |   |
+  |   | P \ar[uul] \ar[dr] |                          | R \ar[dl] \ar[uur] |   |
+  |   |                    | B                        |                    |   |
+- $3$-simplexes ::
+  #+ATTR_LATEX: :mode inline-math :environment xymatrix :math-arguments @R=7pt
+  |   |   | X                                        |   |   |
+  |   |   |                                          |   |   |
+  |   |   | \Theta \ar[uu] \ar[dll] \ar[ddr] \ar[rr] |   | W |
+  | Y |   |                                          |   |   |
+  |   |   |                                          | Z |   |
+*** Formalization
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <6->
+    :END:
+Note that this definition is formalized in Agda
+using mutual recursion of 6 functions!
 * COMMENT Misc
 ** Fontawesome
 We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
