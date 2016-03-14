@@ -47,6 +47,7 @@
   For *any* $\infty$-groupoids $A$ and $B$,
   $(A = B) \simeq (A \simeq B)$ holds.
 
+* COMMENT Misc
 # Local Variables:
 # org-latex-pdf-process: ("pdflatex -draftmode -interaction nonstopmode %b" "bibtex %b" "pdflatex -draftmode -interaction nonstopmode %b" "pdflatex %b")
 # org-beamer-environments-extra: (("onslide" "s" "\\onslide%a{" "}") ("onslide*" "*" "\\onslide*%a{" "}") ("onslide+" "+" "\\onslide+%a{" "}"))
