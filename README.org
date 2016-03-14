@@ -1,0 +1,27 @@
+#+TITLE: Infinite Categories from Type Theory
+#+AUTHOR: Taichi Uemura
+
+* Idea
+
+To construct a syntactic category of a type theory,
+we have two strategies:
+
+1. The objects are the types and the arrows are the functions.
+2. <<strategy-rel>>The objects are the types but the arrows are the /functional relations/.
+   Here a functional relation from $A$ to $B$ is
+   a relation $P$ on $A$ and $B$ such that
+   the formula $\forall (a : A). \exists ! (b : B). P(a, b)$ is provable.
+
+Following the strategy [[strategy-rel]] in a /dependent type theory/,
+we would have a /syntactic $(\infty, 1)$-category/ whose
+0-cells are the types, 1-cells are /functional type families/
+and higher cells are analogous.
+Here a functional type family from $A$ to $B$ is
+a type family $P$ on $A$ and $B$ such that
+for every $a : A$, the type $\Sigma (b : B). P(a, b)$ is /contractible/.
+
+* Copyright and License
+Copyright (c) 2016 Taichi Uemura <t.uemura00@gmail.com>
+
+This work is licensed under
+[[http://creativecommons.org/licenses/by/4.0/][Creative Commons Attribution 4.0 International License]].
