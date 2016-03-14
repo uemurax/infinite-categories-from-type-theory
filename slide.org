@@ -4,19 +4,29 @@
 #+LATEX_CLASS: beamer
 #+LATEX_CLASS_OPTIONS: [14pt]
 #+BEAMER_HEADER: \setbeamertemplate{navigation symbols}{}
-#+LATEX_HEADER: \usepackage{fontspec}
 #+LATEX_HEADER: \usepackage[euler-digits]{eulervm}
 #+LATEX_HEADER: \usepackage{dutchcal}
 #+BEAMER_HEADER: \usefonttheme{professionalfonts}
 
 * COMMENT Build
-** LuaLaTeX
+** Org
+#+BEGIN_SRC emacs-lisp
+  (dolist (v '(("onslide" "s" "\\onslide%a{" "}")
+               ("onslide*" "*" "\\onslide*%a{" "}")
+               ("onslide+" "+" "\\onslide+%a{" "}")))
+    (add-to-list 'org-beamer-environments-extra v))
+  nil
+#+END_SRC
+
+#+RESULTS:
+
+** LaTeX
 #+BEGIN_SRC emacs-lisp
   (setq org-latex-pdf-process
-        '("lualatex -draftmode -interaction nonstopmode %b"
+        '("pdflatex -draftmode -interaction nonstopmode %b"
           "bibtex %b"
-          "lualatex -draftmode -interaction nonstopmode %b"
-          "lualatex %b"))
+          "pdflatex -draftmode -interaction nonstopmode %b"
+          "pdflatex %b"))
   nil
 #+END_SRC
 
@@ -30,7 +40,11 @@
     :BEAMER_ENV: block
     :BEAMER_ACT: <2->
     :END:
-#+BEAMER: \only<2>{
+**** The Univalence Axiom
+     :PROPERTIES:
+     :BEAMER_ENV: onslide*
+     :BEAMER_ACT: <2>
+     :END:
 - Equivalence between equality and equivalence
   \[ (A = B) \simeq (A \simeq B). \]
 - $A = B$ is an inductive type.
@@ -39,8 +53,11 @@
 - $A \simeq B :\equiv
   \Sigma (f : A \to B). (\Sigma (g : B \to A). g \circ f \sim \mathbf{id})
   \times (\Sigma (h : B \to A). f \circ h \sim \mathbf{id})$
-#+BEAMER: }
-#+BEAMER: \only<3->{
+**** Example
+     :PROPERTIES:
+     :BEAMER_ENV: onslide*
+     :BEAMER_ACT: <3->
+     :END:
 - $\mathbcal{Set}$ ::
   Only $(0 = 0) \simeq (0 \simeq 0)$ and
   $(1 = 1) \simeq (1 \simeq 1)$ hold.
@@ -50,9 +67,6 @@
 - $2$-$\mathcal{Gpd}$ ::
   For $1$-groupoids $A$ and $B$,
   $(A = B) \simeq (A \simeq B)$ holds.
-  #+BEAMER: \onslide<4->{
-- $\infty$-$\mathcal{Gpd}$ ::
+- $\infty$-$\mathcal{Gpd}$ :: @@beamer:<4>@@
   For *any* $\infty$-groupoids $A$ and $B$,
   $(A = B) \simeq (A \simeq B)$ holds.
-  #+BEAMER: }
-#+BEAMER: }
