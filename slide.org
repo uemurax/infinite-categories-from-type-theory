@@ -206,18 +206,21 @@ In both ways the objects are the types.
 ** Strategy
    :PROPERTIES:
    :CUSTOM_ID: strategy
-   :BEAMER_ACT: <-3>
+   :BEAMER_ACT: <-4>
    :END:
 Let $\mathcal{T}$ be a dependent type theory.
 1. Define a simplicial set $R(\mathcal{T})$
    whose $1$-simplexes are the $2$-ary type families
    $P : A \to B \to \mathbf{Type}$.
 2. @@beamer:<2->@@
-   #+BEAMER: \only<4>{\faHandORight}
+   #+BEAMER: \only<5>{\faHandORight}
    Take a subsimplicial set $S(\mathcal{T}) \subset R(\mathcal{T})$
    whose $1$-simplexes are the /functional type families/.
 3. @@beamer:<3->@@
    On each stage, give higher analogies.
+4. @@beamer:<4->@@
+   #+BEAMER: \only<6>{\faHandORight}
+   Construct inner fillings.
 ** Simplicial set of (higher) relations
 *** Syntactic form
     :PROPERTIES:
@@ -315,7 +318,7 @@ paths from $p$ to $p'$ /above/ $\gamma$.
    :PROPERTIES:
    :BEAMER_ENV: againframe
    :BEAMER_REF: #strategy
-   :BEAMER_ACT: <4>
+   :BEAMER_ACT: <5>
    :END:
 ** Functional higher relations
 *** Definitions
@@ -377,16 +380,63 @@ and both the types
 - $(a : A) (b : B) (c : C) (p : P(a, b)) (q : Q(a, c))
   \to \mathbf{isContr}(\Sigma(r : R(b, c)).X(p, q, r))$
 have some elements.
-*** Remark on functional higher relation
+*** Remark
     :PROPERTIES:
     :BEAMER_ENV: onslide*
     :BEAMER_ACT: <4>
     :END:
-**** Remark
 The type
 $(a : A) (b : B) (c : C) (q : Q(a, c)) (r : R(b, c))
 \to \mathbf{isContr}(\Sigma (p : P(a, b)). X(p, q, r))$
 might have no elements.
+** Strategy
+   :PROPERTIES:
+   :BEAMER_ENV: againframe
+   :BEAMER_REF: #strategy
+   :BEAMER_ACT: <6>
+   :END:
+** Inner fillings
+*** Syntactic form
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <1>
+    :END:
+For any $(2, 1)$-horn
+$(P : A \to B \to \mathbf{Type}, R : B \to C \to \mathbf{Type})$,
+we have a $2$-simplex
+$\lambda (a : A) (b : B) (c : C)
+(p : P(a, b)) (q : P(a, b) \times R(b, c)) (r : R(b, c))
+\to \langle p, r \rangle = q$.
+*** Categorical form
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <2->
+    :END:
+#+ATTR_LATEX: :mode math :environment xymatrix
+| A |                    | \only<3->{P \times_{B} R \ar[ll] \ar[rr]}                     |                    | C |
+|   |                    | \only<3->{\mathbf{Eq}(P \times_{B} R) \ar[dl] \ar[u] \ar[dr]} |                    |   |
+|   | P \ar[uul] \ar[dr] |                                                               | R \ar[dl] \ar[uur] |   |
+|   |                    | B                                                             |                    |   | 
+**** Remark
+    :PROPERTIES:
+    :BEAMER_ENV: onslide
+    :BEAMER_ACT: <4->
+    :END:
+These filling operations work on outer horns
+$\Lambda^{n}_{0}$ and $\Lambda^{n}_{n}$
+but don't preserve functionality.
+** Summary
+For any dependent type theory $\mathcal{T}$,
+*** 
+    :PROPERTIES:
+    :BEAMER_ENV: theorem
+    :END:
+$R(\mathcal{T})$ is a Kan complex.
+*** 
+    :PROPERTIES:
+    :BEAMER_ENV: theorem
+    :END:
+$S(\mathcal{T})$ is a quasicategory.
 * COMMENT Misc
 ** Fontawesome
 We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
