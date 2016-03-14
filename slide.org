@@ -1,5 +1,58 @@
 #+TITLE: $\infty$-Categories from Type Theory
 #+AUTHOR: Taichi Uemura
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil H:2
 #+LATEX_CLASS: beamer
-#+LATEX_HEADER: \setbeamertemplate{navigation symbols}{}
+#+LATEX_CLASS_OPTIONS: [14pt]
+#+BEAMER_HEADER: \setbeamertemplate{navigation symbols}{}
+#+LATEX_HEADER: \usepackage{fontspec}
+#+LATEX_HEADER: \usepackage[euler-digits]{eulervm}
+#+LATEX_HEADER: \usepackage{dutchcal}
+#+BEAMER_HEADER: \usefonttheme{professionalfonts}
+
+* COMMENT Build
+** LuaLaTeX
+#+BEGIN_SRC emacs-lisp
+  (setq org-latex-pdf-process
+        '("lualatex -draftmode -interaction nonstopmode %b"
+          "bibtex %b"
+          "lualatex -draftmode -interaction nonstopmode %b"
+          "lualatex %b"))
+  nil
+#+END_SRC
+
+#+RESULTS:
+
+* Introduction
+
+** Why $\infty$-categories?
+*** The Univalence Axiom
+    :PROPERTIES:
+    :BEAMER_ENV: block
+    :BEAMER_ACT: <2->
+    :END:
+#+BEAMER: \only<2>{
+- Equivalence between equality and equivalence
+  \[ (A = B) \simeq (A \simeq B). \]
+- $A = B$ is an inductive type.
+  - /Path induction/
+  - rewrite tactic
+- $A \simeq B :\equiv
+  \Sigma (f : A \to B). (\Sigma (g : B \to A). g \circ f \sim \mathbf{id})
+  \times (\Sigma (h : B \to A). f \circ h \sim \mathbf{id})$
+#+BEAMER: }
+#+BEAMER: \only<3->{
+- $\mathbcal{Set}$ ::
+  Only $(0 = 0) \simeq (0 \simeq 0)$ and
+  $(1 = 1) \simeq (1 \simeq 1)$ hold.
+- $\mathcal{Gpd}$ ::
+  For discrete groupoids $A$ and $B$,
+  $(A = B) \simeq (A \simeq B)$ holds.
+- $2$-$\mathcal{Gpd}$ ::
+  For $1$-groupoids $A$ and $B$,
+  $(A = B) \simeq (A \simeq B)$ holds.
+  #+BEAMER: \onslide<4->{
+- $\infty$-$\mathcal{Gpd}$ ::
+  For *any* $\infty$-groupoids $A$ and $B$,
+  $(A = B) \simeq (A \simeq B)$ holds.
+  #+BEAMER: }
+#+BEAMER: }
