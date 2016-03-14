@@ -8,6 +8,7 @@
 #+LATEX_HEADER: \usepackage{dutchcal}
 #+BEAMER_HEADER: \usefonttheme{professionalfonts}
 #+LATEX_HEADER: \usepackage[all]{xy}
+#+LATEX_HEADER: \usepackage{fontspec,fontawesome}
 
 * Introduction
 
@@ -152,9 +153,57 @@ and
 But we can show they are homotopic
 using the filling condition for $n = 3$ and $i = 1$ or $2$.
 #+BEAMER: }
+* $\infty$-Categories from Type Theory
+** Outline
+#+TOC: headlines [currentsection]
+** Are 1-simplexes functions?
+For a dependent type theory $\mathcal{T}$,
+define a simplicial set $S(\mathcal{T})$ as:
+*** 0 to 2
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <1>
+    :END:
+- $0$-simplexes are the types.
+- $1$-simplexes are the functions $f : A \to B$.
+- $2$-simplexes are the homotopies $\sigma : g \circ f \sim h$.
+  #+BEGIN_LATEX
+  \[\xymatrix{
+   A \ar[dr]_-{f} \ar[rr]^-{h} & \ar@{}[d]|-{\sigma} & C \\
+    & B \ar[ur]_-{g} &  \\
+  }\]
+  #+END_LATEX
+*** 3 to $\infty$
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <2->
+    :END:
+- $3$-simplexes are the homotopies
+  #+BEGIN_CENTER
+  from
+  $\xymatrix{x \ar[d]_-{e} \ar[dr]|-{h} \ar[r]^-{l} & w \\
+   y \ar[r]_-{f} \ar@{}[ur]|(0.25){\alpha}|(0.75){\beta} & z \ar[u]_-{g} \\}$
+  to
+  $\xymatrix{x \ar[d]_-{e} \ar[r]^-{l} \ar@{}[dr]|(0.25){\gamma}|(0.75){\delta}& w \\
+   y \ar[r]_-{f} \ar[ur]|-{k} & z. \ar[u]_-{g} \\}$
+  #+END_CENTER
+- @@beamer:<3->@@
+  $4$-simplexes are the homotopies from \faRocket{} to \faSpaceShuttle{}.
+#+BEAMER: \onslide<3->{
+It is hard to write down what $n$-simplexes are in general.
+#+BEAMER: }
 * COMMENT Misc
+** Fontawesome
+We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
+In Arch Linux or similar system, you can get it from AUR.
+
+#+BEGIN_SRC shell
+  yaourt -S fontawesome.sty
+#+END_SRC
+
+** Local variables
 # Local Variables:
-# org-latex-pdf-process: ("pdflatex -draftmode -interaction nonstopmode %b" "bibtex %b" "pdflatex -draftmode -interaction nonstopmode %b" "pdflatex %b")
+# org-latex-pdf-process: ("lualatex -draftmode -interaction nonstopmode %b" "bibtex %b" "lualatex -draftmode -interaction nonstopmode %b" "lualatex %b")
 # org-beamer-environments-extra: (("onslide" "s" "\\onslide%a{" "}") ("onslide*" "*" "\\onslide*%a{" "}") ("onslide+" "+" "\\onslide+%a{" "}"))
 # org-latex-table-matrix-macros: (("xymatrix" . "\\\\"))
 # End:
