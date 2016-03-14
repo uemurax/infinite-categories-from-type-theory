@@ -1,0 +1,5 @@
+#+TITLE: $\infty$-Categories from Type Theory
+#+AUTHOR: Taichi Uemura
+#+OPTIONS: toc:nil
+#+LATEX_CLASS: beamer
+#+LATEX_HEADER: \setbeamertemplate{navigation symbols}{}
