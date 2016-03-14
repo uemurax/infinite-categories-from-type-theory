@@ -200,16 +200,16 @@ In both ways the objects are the types.
 1. The morphisms are the functions.
    #+BEAMER: \pause
 2. The morphisms are the /functional relations/:
-   relations $R : A \to B \to \mathbf{Prop}$
-   such that the formula $\forall (a : A). \exists ! (b : B). R(a, b)$
+   relations $P : A \to B \to \mathbf{Prop}$
+   such that the formula $\forall (a : A). \exists ! (b : B). P(a, b)$
    is provable.
 ** Strategy
 Let $\mathcal{T}$ be a dependent type theory.
-1. Define a simplicial set $S_{0}(\mathcal{T})$
+1. Define a simplicial set $R(\mathcal{T})$
    whose $1$-simplexes are the $2$-ary type families
-   $R : A \to B \to \mathbf{Type}$.
+   $P : A \to B \to \mathbf{Type}$.
    #+BEAMER: \pause
-2. Take a subsimplicial set $S(\mathcal{T}) \subset S_{0}(\mathcal{T})$
+2. Take a subsimplicial set $S(\mathcal{T}) \subset R(\mathcal{T})$
    whose $1$-simplexes are the /functional type families/.
    #+BEAMER: \pause
 3. Give higher analogies.
@@ -219,7 +219,7 @@ Let $\mathcal{T}$ be a dependent type theory.
     :BEAMER_ENV: onslide*
     :BEAMER_ACT: <1-4>
     :END:
-$S_{0}(\mathcal{T})$ is the simplicial set where
+$R(\mathcal{T})$ is the simplicial set where
 1. $0$-simplexes are the types,
 2. @@beamer:<2->@@
    $1$-simplexes are the $2$-ary type families,
@@ -272,6 +272,40 @@ using mutual recursion of 6 functions!
 #+BEAMER: \begingroup\scriptsize
 #+INCLUDE: "HigherRelation.agda" src agda :lines "37-"
 #+BEAMER: \endgroup
+** Face maps and degeneracy maps
+*** Syntactic form
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <1>
+    :END:
+There are obvious projections
+$d^{n}_{i} : R(\mathcal{T})_{n} \to R(\mathcal{T})_{n - 1}$
+for all $0 \le i \le n$.
+
+Degeneracy maps
+$s^{n}_{i} : R(\mathcal{T})_{n} \to R(\mathcal{T})_{n + 1}$
+($0 \le i \le n$) are as follows
+(not formalized yet):
+- $s^{0}_{0}(A) \equiv \lambda (a, a' : A) \to a = a'$
+- $s^{1}_{0}(P : A \to B \to \mathbf{Type}) \equiv
+  \lambda (a, a' : A) (b : B) (\gamma : a = a') (p : P(a, b)) (p' : P(a', b))
+  \to p =_{\gamma} p'$
+Here $p =_{\gamma} p'$ is the type of
+paths from $p$ to $p'$ /above/ $\gamma$.
+*** Categorical form
+    :PROPERTIES:
+    :BEAMER_ENV: onslide*
+    :BEAMER_ACT: <2->
+    :END:
+- $s^{0}_{0}(A)$ ::
+  #+ATTR_LATEX: :mode inline-math :environment xymatrix
+  | A | \mathbf{Eq}(A) \ar[l] \ar[r] | A |
+- $s^{1}_{0}(A)$ ::
+  #+ATTR_LATEX: :mode inline-math :environment xymatrix :math-arguments @R=7pt
+  | A |                                 | P \ar[ll] \ar[rr]                     |                    | B |
+  |   |                                 | \mathbf{Eq}(P) \ar[dl] \ar[u] \ar[dr] |                    |   |
+  |   | \mathbf{Eq}(A) \ar[uul] \ar[dr] |                                       | P \ar[dl] \ar[uur] |   |
+  |   |                                 | A                                     |                    |   |
 * COMMENT Misc
 ** Fontawesome
 We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
