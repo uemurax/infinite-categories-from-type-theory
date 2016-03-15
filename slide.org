@@ -454,6 +454,11 @@ $S(\mathcal{T})$ is a quasicategory.
 #+LATEX: \bibliographystyle{apalike}
 #+LATEX: \bibliography{references}
 * COMMENT Misc
+** Make
+*** PDF
+[[elisp:org-beamer-export-to-pdf]]
+*** Clean
+[[elisp:(dolist%20(f%20(remove%20(buffer-file-name)%20(directory-files%20"."%20t%20"^slide\\.")))%20(delete-file%20f))][elisp:(dolist (f (remove (buffer-file-name) (directory-files "." t "^slide\\."))) (delete-file f))]]
 ** Fontawesome
 We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
 In Arch Linux or similar system, you can get it from AUR.
