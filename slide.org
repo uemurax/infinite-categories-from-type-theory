@@ -164,12 +164,15 @@ which has the following property:
   |                                      | e \ar[dr] | \only<3->{\sigma \only<4->{'}}         | f \ar[ur] |   |
   |                                      |           | y \ar@{-}[ur]                          |           |   |
 - $0 < i = 1 < 3$ :: @@beamer:<5->@@
-  #+ATTR_LATEX: :mode inline-math :environment xymatrix :math-arguments @R=4pt
-  | x \ar@{-}[dd] \ar@{-}[dr] \ar@{-}[rr] |                                                     | g' \ar[rr]                                                     |                                                                | z                   |
-  |                                       | g \ar[dddrrr]                                       | \sigma' \only<6>{\ar@{.}[dll] \ar@{.}[r] \ar@{.}[u]}           | f \ar[ur]                                                      |                     |
-  | e \ar[dd]                             | \sigma \only<6>{\ar@{.}[l] \ar@{.}[ddr] \ar@{.}[u]} | \only<10->{\Gamma \ar@{.}[l] \ar@{.}[d] \ar@{.}[r] \ar@{.}[u]} | \only<8->{\tau} \only<9>{\ar@{.}[ull] \ar@{.}[r] \ar@{.}[uul]} | \mathbf{id} \ar[uu] |
-  |                                       |                                                     | \mathbf{id} \only<6>{\ar@{.}[d] \ar@{.}[urr] \ar@{.}[uur]}     |                                                                |                     |
-  | y \ar@{-}[rr] \ar@{-}[uuurrr]         |                                                     | f \ar[rr]                                                      |                                                                | z \ar@{-}[uu]       |
+  #+BEGIN_LATEX
+  \(\xymatrix@R=4pt{
+   x \ar@{-}[dd] \ar@{-}[dr] \ar@{-}[rr] &  & g' \ar[rr] &  & z \\
+    & g \ar[dddrrr] & \sigma' \only<6>{\ar@{.}[dll] \ar@{.}[r] \ar@{.}[u]} & f \ar[ur] &  \\
+   e \ar[dd] & \sigma \only<6>{\ar@{.}[l] \ar@{.}[ddr] \ar@{.}[u]} & \only<10->{\Gamma \ar@{.}[l] \ar@{.}[d] \ar@{.}[r] \ar@{.}[u]} & \only<8->{\tau} \only<9>{\ar@{.}[ull] \ar@{.}[r] \ar@{.}[uul]} & \mathbf{id} \ar[uu] \\
+    &  & \mathbf{id} \only<6>{\ar@{.}[d] \ar@{.}[urr] \ar@{.}[uur]} &  &  \\
+   y \ar@{-}[rr] \ar@{-}[uuurrr]|(0.66){\hole} &  & f \ar[rr] &  & z \ar@{-}[uu] \\
+  }\)
+  #+END_LATEX
 ***** Associativity
       :PROPERTIES:
       :BEAMER_ENV: onslide*
