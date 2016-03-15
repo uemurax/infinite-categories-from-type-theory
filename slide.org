@@ -10,6 +10,7 @@
 #+LATEX_HEADER: \usepackage[all]{xy}
 #+LATEX_HEADER: \usepackage{fontspec,fontawesome}
 #+LATEX_HEADER: \setmonofont{DejaVu Sans Mono}
+#+BEAMER_COLOR_THEME: japanese
 
 * Introduction
 
@@ -462,11 +463,18 @@ $S(\mathcal{T})$ is a quasicategory.
 ** Fontawesome
 We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
 In Arch Linux or similar system, you can get it from AUR.
-
-#+BEGIN_SRC shell
+#+BEGIN_SRC sh
   yaourt -S fontawesome.sty
 #+END_SRC
-
+** Color theme
+We use our original Beamer color theme,
+[[https://github.com/uemurax/japanese-theme][Traditional Colors of Japan]].
+To install it, execute the following commands:
+#+BEGIN_SRC sh
+  git clone https://github.com/uemurax/japanese-theme
+  cd japanese-theme
+  make install
+#+END_SRC
 ** Local variables
 # Local Variables:
 # org-latex-pdf-process: ("bash -c \"[ -e references.bib ] || wget -O references.bib http://www.citeulike.org/bibtex/user/uemurataichi\"" "lualatex -draftmode -interaction nonstopmode %b" "bibtex %b" "lualatex -draftmode -interaction nonstopmode %b" "lualatex %b")
