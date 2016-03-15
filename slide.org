@@ -380,15 +380,24 @@ and both the types
 - $(a : A) (b : B) (c : C) (p : P(a, b)) (q : Q(a, c))
   \to \mathbf{isContr}(\Sigma(r : R(b, c)).X(p, q, r))$
 have some elements.
-*** Remark
+*** Examples
     :PROPERTIES:
     :BEAMER_ENV: onslide*
     :BEAMER_ACT: <4>
     :END:
-The type
-$(a : A) (b : B) (c : C) (q : Q(a, c)) (r : R(b, c))
-\to \mathbf{isContr}(\Sigma (p : P(a, b)). X(p, q, r))$
-might have no elements.
+**** Function
+     :PROPERTIES:
+     :BEAMER_ENV: example
+     :END:
+Suppose $P$, $Q$ and $R$ are functional,
+and $f : (a : A) (b : B) (c : C) \to
+P(a, b) \times R(b, c) \to Q(a, c)$.
+Then $\lambda (p, q, r) \to f(\langle p, r \rangle) = q$
+is functional.
+#+ATTR_LATEX: :mode math :environment xymatrix
+| A |                   | Q \ar[ll] \ar[rr] |                   | C |
+|   | P \ar[ul] \ar[dr] | \Uparrow f        | R \ar[dl] \ar[ur] |   |
+|   |                   | B                 |                   |   |
 ** Strategy
    :PROPERTIES:
    :BEAMER_ENV: againframe
