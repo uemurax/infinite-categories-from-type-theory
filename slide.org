@@ -227,7 +227,8 @@ define a simplicial set $S(\mathcal{T})$ as:
    y \ar[r]_-{f} \ar[ur]|-{k} & z. \ar[u]_-{g} \\}$
   #+END_CENTER
 - @@beamer:<3->@@
-  $4$-simplexes are the homotopies from \faRocket{} to \faSpaceShuttle{}.
+  $4$-simplexes are the homotopies from
+  \rotatebox[origin=c]{-15}{\faCubes} to \rotatebox[origin=c]{20}{\faCubes}.
 #+BEAMER: \onslide<3->{
 It is hard to write down, even imagine,
 what $n$-simplexes are in general.
@@ -259,7 +260,7 @@ Let $\mathcal{T}$ be a dependent type theory.
 4. @@beamer:<4->@@
    #+BEAMER: \only<6>{\faHandORight}
    Construct inner fillings.
-** Simplicial set of (higher) relations
+** Simplicial set of higher relations
 *** Syntactic form
     :PROPERTIES:
     :BEAMER_ENV: onslide*
