@@ -279,13 +279,6 @@ $R(\mathcal{T})$ is the simplicial set where
     :END:
 Note that this definition is formalized in Agda
 using mutual recursion of 6 functions!
-** Formalization
-   :PROPERTIES:
-   :BEAMER_OPT: allowframebreaks,label=
-   :END:
-#+BEAMER: \begingroup\scriptsize
-#+INCLUDE: "HigherRelation.agda" src agda :lines "37-"
-#+BEAMER: \endgroup
 ** Face maps and degeneracy maps
 *** Syntactic form
     :PROPERTIES:
@@ -453,6 +446,13 @@ $S(\mathcal{T})$ is a quasicategory.
    :END:
 #+LATEX: \bibliographystyle{apalike}
 #+LATEX: \bibliography{references}
+** Formalization of higher relations
+   :PROPERTIES:
+   :BEAMER_OPT: allowframebreaks,label=
+   :END:
+#+BEAMER: \begingroup\scriptsize
+#+INCLUDE: "HigherRelation.agda" src agda :lines "37-"
+#+BEAMER: \endgroup
 * COMMENT Misc
 ** Make
 *** PDF
