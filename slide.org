@@ -25,7 +25,8 @@
      :BEAMER_ACT: <2>
      :END:
 - Equivalence between equality and equivalence
-  \[ (A = B) \simeq (A \simeq B). \]
+  \[ (A = B) \simeq (A \simeq B) \]
+  \cite{hottbook}.
 - $A = B$ is an inductive type.
   - /Path induction/
   - rewrite tactic
@@ -59,13 +60,15 @@ With the Univalence Axiom, computers can:
   $(1 = 1) \simeq (1 \simeq 1)$ hold.
 - $\mathcal{Gpd}$ ::
   For discrete groupoids $A$ and $B$,
-  $(A = B) \simeq (A \simeq B)$ holds.
+  $(A = B) \simeq (A \simeq B)$ holds
+  \cite{hofmann1998groupoid}.
 - $2$-$\mathcal{Gpd}$ ::
   For $1$-groupoids $A$ and $B$,
   $(A = B) \simeq (A \simeq B)$ holds.
 - $\infty$-$\mathcal{Gpd}$ :: @@beamer:<7->@@
   For *any* $\infty$-groupoids $A$ and $B$,
-  $(A = B) \simeq (A \simeq B)$ holds.
+  $(A = B) \simeq (A \simeq B)$ holds
+  \cite{kapulkin2014simplicial}.
 
 ** $\infty$-Categorical semantics
 *** Intensional DTT and $\infty$-LCCC
@@ -84,13 +87,15 @@ Is there an ($\infty$-)equivalence between
 ** Outline
 #+TOC: headlines [currentsection]
 ** $\infty$-Categories
-There are many definitions of $\infty$-categories.
+There are many definitions of $\infty$-categories[fn:nlab].
 - *@@beamer:<2->@@Quasicategories*
 - Simplicially enriched categories
 - Topologically enriched categories
 - Segal categories
 - Complete Segal spaces
 - $A_{\infty}$-Categories
+
+[fn:nlab] [[https://ncatlab.org/nlab/show/(infinity,1)-category]]
 ** Quasicategories
 *** Definition of quasicategory
     :PROPERTIES:
@@ -101,7 +106,8 @@ There are many definitions of $\infty$-categories.
      :PROPERTIES:
      :BEAMER_ENV: definition
      :END:
-A /quasicategory/ is a simplicial set $K$
+A /quasicategory/ \cite{joyal2002quasi-categories}
+is a simplicial set $K$
 which has the following property:
 - for any $0 < i < n$,
   any map $f_{0} : \Lambda^{n}_{i} \to K$
@@ -440,6 +446,13 @@ but don't preserve functionality.
     :END:
 For any dependent type theory $\mathcal{T}$,
 $S(\mathcal{T})$ is a quasicategory.
+* Conclusion
+** References
+   :PROPERTIES:
+   :BEAMER_OPT: allowframebreaks,label=
+   :END:
+#+LATEX: \bibliographystyle{apalike}
+#+LATEX: \bibliography{references}
 * COMMENT Misc
 ** Fontawesome
 We use [[http://www.ctan.org/pkg/fontawesome][fontawesome.sty]] to display emoji.
@@ -451,7 +464,7 @@ In Arch Linux or similar system, you can get it from AUR.
 
 ** Local variables
 # Local Variables:
-# org-latex-pdf-process: ("lualatex -draftmode -interaction nonstopmode %b" "bibtex %b" "lualatex -draftmode -interaction nonstopmode %b" "lualatex %b")
+# org-latex-pdf-process: ("bash -c \"[ -e references.bib ] || wget -O references.bib http://www.citeulike.org/bibtex/user/uemurataichi\"" "lualatex -draftmode -interaction nonstopmode %b" "bibtex %b" "lualatex -draftmode -interaction nonstopmode %b" "lualatex %b")
 # org-beamer-environments-extra: (("onslide" "s" "\\onslide%a{" "}") ("onslide*" "*" "\\onslide*%a{" "}") ("onslide+" "+" "\\onslide+%a{" "}"))
 # org-latex-table-matrix-macros: (("xymatrix" . "\\\\"))
 # End:
