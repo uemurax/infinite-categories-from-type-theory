@@ -418,7 +418,7 @@ have some elements.
 *** Examples
     :PROPERTIES:
     :BEAMER_ENV: onslide*
-    :BEAMER_ACT: <4>
+    :BEAMER_ACT: <4->
     :END:
 **** Function
      :PROPERTIES:
@@ -430,9 +430,13 @@ P(a, b) \times R(b, c) \to Q(a, c)$.
 Then $\lambda (p, q, r) \to f(\langle p, r \rangle) = q$
 is functional.
 #+ATTR_LATEX: :mode math :environment xymatrix
-| A |                   | Q \ar[ll] \ar[rr] |                   | C |
-|   | P \ar[ul] \ar[dr] | \Uparrow f        | R \ar[dl] \ar[ur] |   |
-|   |                   | B                 |                   |   |
+| A |                                       | \only<6-7>{\alert}{Q} \ar[ll] \ar[rr] |                                       | C |
+|   | \only<5-6>{\alert}{P} \ar[ul] \ar[dr] | \Uparrow f                            | \only<5,7>{\alert}{R} \ar[dl] \ar[ur] |   |
+|   |                                       | B                                     |                                       |   |
+#+BEGIN_CENTER
+#+BEAMER: \only<5-6>{Good}
+#+BEAMER: \only<7>{Bad}
+#+END_CENTER
 ** Strategy
    :PROPERTIES:
    :BEAMER_ENV: againframe
